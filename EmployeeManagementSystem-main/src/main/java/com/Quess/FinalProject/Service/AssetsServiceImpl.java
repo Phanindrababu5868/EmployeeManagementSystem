@@ -40,6 +40,7 @@ public class AssetsServiceImpl implements AssetsService{
         assets1.setNumberOfItems(assets.getNumberOfItems());
         assets1.setPurchaseCost(assets.getPurchaseCost());
         assets1.setPresentCost(assets.getPresentCost());
+        assets1.setOrganizationId(assets1.getOrganizationId());
         assetsRepository.save(assets1);
         return assets1;
     }

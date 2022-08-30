@@ -47,6 +47,7 @@ public class EmployeeServiceIml implements EmployeeService {
             existingEmployee.setAddress(employee.getAddress());
             existingEmployee.setPhoneNo(employee.getPhoneNo());
             existingEmployee.setSalary(employee.getSalary());
+            existingEmployee.setOrganizationId(employee.getOrganizationId());
 
             existingEmployee.setEmail(employee.getEmail());
         String encodepass=this.passwordEncoder.encode(employee.getPassword());

@@ -32,6 +32,7 @@ public class Assets {
     private long presentCost;
 
     @Column
+    @Min(value = 1,message = "Entre organizationId")
     private int organizationId;
 
 

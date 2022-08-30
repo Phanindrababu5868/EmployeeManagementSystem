@@ -23,7 +23,7 @@ public class OrganizationController {
     public ResponseEntity<String> saveOrganizationData(@RequestBody  @Valid Organization organization)
     {
         organizationService.saveOranizationData(organization);
-        return new ResponseEntity<String>("Record created  successfully", HttpStatus.CREATED);
+        return new ResponseEntity<String>(" Organization Record created  successfully", HttpStatus.CREATED);
 
     }
 
@@ -45,7 +45,7 @@ public class OrganizationController {
     public ResponseEntity<String> updateOrganizationData(  @PathVariable("id")int id, @Valid @RequestBody Organization organization)
     {
         organizationService.updateOrganization(organization,id);
-        return new ResponseEntity<String>("Record updated successfully", HttpStatus.OK);
+        return new ResponseEntity<String>("Organization Record updated successfully", HttpStatus.OK);
 
 
     }
@@ -56,6 +56,6 @@ public class OrganizationController {
 
     {
         organizationService.deleteOrganization(id);
-        return new ResponseEntity<String>("Record deleted successfully",HttpStatus.OK);
+        return new ResponseEntity<String>(" Organization Record deleted successfully",HttpStatus.OK);
     }
 }

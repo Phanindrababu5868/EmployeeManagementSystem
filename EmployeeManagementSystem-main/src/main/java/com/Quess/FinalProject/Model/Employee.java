@@ -37,17 +37,19 @@ public class Employee implements UserDetails {
     @NotEmpty(message = "address should not blank")
     private String address;
 
-    @Pattern(regexp = "^\\d{10}$",message = "enter correct phone number")
+    @NotEmpty
+    @Pattern(regexp = "^\\d{10}$",message = "entre correct phone number")
     private String phoneNo;
 
     @Min(value = 10000)
     private long salary;
 
-    @Email(message = "Enter valid Email")
+    @Email(message = "Entre valid Email")
     @Column(unique = true)
     private String email;
 
     @Column
+    @Min(value = 1,message = "Entre  organization id")
     private int organizationId;
 
     @Pattern(message="password must contain atleast 1 uppercase, 1 lowercase, 1 special character and 1 digit with atleast 6 characters",
