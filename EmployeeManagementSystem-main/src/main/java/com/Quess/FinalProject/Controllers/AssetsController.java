@@ -12,7 +12,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/AssetsDetails")
 public class AssetsController {
     @Autowired
     private AssetsService assetsService;

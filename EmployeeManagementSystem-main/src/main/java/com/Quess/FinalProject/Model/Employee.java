@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 
 @Data
 @Entity
-@Table
 public class Employee implements UserDetails {
 
     @Id
@@ -55,7 +54,7 @@ public class Employee implements UserDetails {
     @Pattern(message="password must contain atleast 1 uppercase, 1 lowercase, 1 special character and 1 digit with atleast 6 characters",
             regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{6,}$")
     private String password;
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="EmployeeRole", joinColumns = @JoinColumn(name="employeeid", referencedColumnName = "Employee_id"),inverseJoinColumns = @JoinColumn(name="roleid",referencedColumnName = "id"))
     private Set<Role> roles=new HashSet<>();
 
@@ -96,13 +95,6 @@ public class Employee implements UserDetails {
         return true;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//
-//
-//        if(obj==null || !(obj instanceof Employee) )
-//            return false;
-//        return this.Employee_id==((Employee)obj).getEmployee_id();
-//    }
+
 
 }

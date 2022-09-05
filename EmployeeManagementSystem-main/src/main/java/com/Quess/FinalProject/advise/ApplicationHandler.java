@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class ApplicationHandler {
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+   @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String,String> handleInvalidArguments(MethodArgumentNotValidException exp){
         Map<String,String>errorMap=new HashMap<>();

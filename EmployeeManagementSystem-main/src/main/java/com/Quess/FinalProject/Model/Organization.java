@@ -19,14 +19,13 @@ import java.util.stream.Collectors;
 
 @Data
 @Entity
-@Table
+//@Table
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int organization_id;
 
     @NotEmpty(message = "organizationName name Should not empty")
-    @Size(min=3)
     private String organizationName;
 
     @NotEmpty(message = "Address Should not empty")

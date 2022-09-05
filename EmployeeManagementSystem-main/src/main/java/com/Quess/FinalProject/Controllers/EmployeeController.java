@@ -65,7 +65,7 @@ public class EmployeeController {
         }
         catch (Exception e)
         {
-            throw new ResourceNotFoundException("Enter correct id ");
+            throw new ResourceNotFoundException("Id not found");
         }
     }
     @GetMapping(value = "/Employee/getbyid/{id}")

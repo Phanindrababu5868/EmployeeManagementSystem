@@ -14,7 +14,7 @@ public class userdetails implements UserDetailsService {
     private Employeerepository employeeRepo;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Employee employee= this.employeerepository.findByEmail(username).or;
+
         Employee detail= this.employeeRepo.findByEmail(username);
 
         return detail;

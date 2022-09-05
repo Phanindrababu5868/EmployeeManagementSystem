@@ -10,7 +10,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleResourceNotfoundException(ResourceNotFoundException exception){
         ErrordDetails errordDetails= new ErrordDetails(exception.getMessage());
-        return new ResponseEntity(errordDetails,HttpStatus.NOT_FOUND);
+        return new ResponseEntity(errordDetails,HttpStatus.BAD_REQUEST);
     }
 //    @ExceptionHandler(Exception.class)
 //    public ResponseEntity<?> handleResourceNotfoundException(Exception exception){

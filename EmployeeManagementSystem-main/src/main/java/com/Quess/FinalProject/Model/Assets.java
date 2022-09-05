@@ -10,7 +10,6 @@ import javax.validation.constraints.Size;
 
 @Data
 @Entity
-@Table
 public class Assets {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +31,7 @@ public class Assets {
     private long presentCost;
 
     @Column
-    @Min(value = 1,message = "Entre organizationId")
+    @Min(value = 1,message = "Entre correct organizationId")
     private int organizationId;
 
 

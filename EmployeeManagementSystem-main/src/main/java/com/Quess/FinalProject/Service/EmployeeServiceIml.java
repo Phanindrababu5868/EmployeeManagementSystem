@@ -21,9 +21,12 @@ public class EmployeeServiceIml implements EmployeeService {
 
     @Override
     public Employee saveEmployee(Employee employee) {
-        String encodepass=this.passwordEncoder.encode(employee.getPassword());
+        try{String encodepass=this.passwordEncoder.encode(employee.getPassword());
         employee.setPassword(encodepass);
-        return employeerepository.save(employee);
+        return employeerepository.save(employee);}
+        catch (Exception e){
+            throw new com.Quess.FinalProject.Exception.ResourceNotFoundException("Enter correct details(check organization id)");
+        }
     }
 
     @Override
@@ -40,7 +43,7 @@ public class EmployeeServiceIml implements EmployeeService {
 
     @Override
     public Employee updateEmployee(Employee employee, int id) {
-        Employee existingEmployee = employeerepository.findById(id).orElseThrow(() -> new com.Quess.FinalProject.Exception.ResourceNotFoundException("Employee Not found by given Id : "+id));
+        try{Employee existingEmployee = employeerepository.findById(id).orElseThrow(() -> new com.Quess.FinalProject.Exception.ResourceNotFoundException("Employee Not found by given Id : "+id));
             existingEmployee.setName(employee.getName());
             existingEmployee.setAge(employee.getAge());
             existingEmployee.setGender(employee.getGender());
@@ -54,7 +57,10 @@ public class EmployeeServiceIml implements EmployeeService {
             existingEmployee.setPassword(encodepass);
 
             employeerepository.save(existingEmployee);
-            return existingEmployee;
+            return existingEmployee;}
+        catch (Exception e){
+            throw new com.Quess.FinalProject.Exception.ResourceNotFoundException("Entre correct details(check organization id)");
+        }
     }
 
     @Override

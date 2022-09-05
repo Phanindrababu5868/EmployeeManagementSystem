@@ -19,7 +19,11 @@ public class AssetsServiceImpl implements AssetsService{
 
     @Override
     public Assets saveAsset(Assets assets) {
-        return assetsRepository.save(assets);
+
+        try{return assetsRepository.save(assets);}
+        catch (Exception e){
+            throw new com.Quess.FinalProject.Exception.ResourceNotFoundException("Entre correct details(check Organization id )");
+        }
     }
 
     @Override
@@ -34,15 +38,18 @@ public class AssetsServiceImpl implements AssetsService{
 
     @Override
     public Assets updateData(Assets assets, int id) {
-        Assets assets1=assetsRepository.findById(id).orElseThrow(()-> new com.Quess.FinalProject.Exception.ResourceNotFoundException("Assets not found By given Id : "+id));
+        try{Assets assets1=assetsRepository.findById(id).orElseThrow(()-> new com.Quess.FinalProject.Exception.ResourceNotFoundException("Assets not found By given Id : "+id));
         assets1.setAssetName(assets.getAssetName());
         assets1.setAssetType(assets.getAssetType());
         assets1.setNumberOfItems(assets.getNumberOfItems());
         assets1.setPurchaseCost(assets.getPurchaseCost());
         assets1.setPresentCost(assets.getPresentCost());
-        assets1.setOrganizationId(assets1.getOrganizationId());
+        assets1.setOrganizationId(assets.getOrganizationId());
         assetsRepository.save(assets1);
-        return assets1;
+        return assets1;}
+        catch (Exception e){
+            throw new com.Quess.FinalProject.Exception.ResourceNotFoundException("Entre correct details(check Organization id)");
+        }
     }
 
     @Override
